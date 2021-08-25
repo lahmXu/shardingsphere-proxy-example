@@ -1,0 +1,1338 @@
+
+Thanks for using Atomikos! Evaluate http://www.atomikos.com/Main/ExtremeTransactions for advanced features and professional support
+or register at http://www.atomikos.com/Main/RegisterYourDownload to disable this message and receive FREE tips & advice
+[INFO ] 2021-08-24 22:57:32.395 [main] o.a.s.p.i.i.AbstractBootstrapInitializer - Database name is `MySQL`, version is `5.7.24`
+[INFO ] 2021-08-24 22:57:32.523 [main] o.a.s.p.frontend.ShardingSphereProxy - ShardingSphere-Proxy start success.
+[INFO ] 2021-08-24 22:58:14.132 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SHOW VARIABLES LIKE 'character_set_database'
+[INFO ] 2021-08-24 22:58:14.133 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLShowOtherStatement()
+[INFO ] 2021-08-24 22:58:14.133 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SHOW VARIABLES LIKE 'character_set_database'
+[INFO ] 2021-08-24 22:58:15.759 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SHOW TABLE STATUS LIKE 'tb_user'
+[INFO ] 2021-08-24 22:58:15.759 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLShowTableStatusStatement(fromSchema=Optional.empty)
+[INFO ] 2021-08-24 22:58:15.759 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SHOW TABLE STATUS LIKE 'tb_user'
+[INFO ] 2021-08-24 22:58:15.900 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SHOW CREATE TABLE `sharding-db0`.`tb_user`
+[INFO ] 2021-08-24 22:58:15.900 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLShowCreateTableStatement(table=SimpleTableSegment(tableName=TableNameSegment(startIndex=18, stopIndex=41, identifier=IdentifierValue(value=tb_user, quoteCharacter=BACK_QUOTE)), owner=Optional[org.apache.shardingsphere.sql.parser.sql.common.segment.generic.OwnerSegment@5e579708], alias=Optional.empty))
+[INFO ] 2021-08-24 22:58:15.900 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SHOW CREATE TABLE `tb_user_0`
+[INFO ] 2021-08-24 22:58:18.338 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SELECT * FROM `tb_user` LIMIT 0,1000
+[INFO ] 2021-08-24 22:58:18.338 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional[org.apache.shardingsphere.sql.parser.sql.common.segment.dml.pagination.limit.LimitSegment@6702d461], lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 22:58:18.338 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT * FROM `tb_user_0` ORDER BY id ASC  LIMIT 0,1000
+[INFO ] 2021-08-24 22:58:18.338 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT * FROM `tb_user_1` ORDER BY id ASC  LIMIT 0,1000
+[INFO ] 2021-08-24 22:58:18.338 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT * FROM `tb_user_0` ORDER BY id ASC  LIMIT 0,1000
+[INFO ] 2021-08-24 22:58:18.338 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT * FROM `tb_user_1` ORDER BY id ASC  LIMIT 0,1000
+[INFO ] 2021-08-24 22:59:21.415 [ShardingSphere-Command-2] ShardingSphere-SQL - Logic SQL: SHOW CREATE TABLE `sharding-db0`.`tb_user`
+[INFO ] 2021-08-24 22:59:21.417 [ShardingSphere-Command-2] ShardingSphere-SQL - SQLStatement: MySQLShowCreateTableStatement(table=SimpleTableSegment(tableName=TableNameSegment(startIndex=18, stopIndex=41, identifier=IdentifierValue(value=tb_user, quoteCharacter=BACK_QUOTE)), owner=Optional[org.apache.shardingsphere.sql.parser.sql.common.segment.generic.OwnerSegment@7a4d6414], alias=Optional.empty))
+[INFO ] 2021-08-24 22:59:21.417 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SHOW CREATE TABLE `tb_user_0`
+[INFO ] 2021-08-24 22:59:23.594 [ShardingSphere-Command-2] ShardingSphere-SQL - Logic SQL: SHOW TABLE STATUS LIKE 'tb_user'
+[INFO ] 2021-08-24 22:59:23.594 [ShardingSphere-Command-2] ShardingSphere-SQL - SQLStatement: MySQLShowTableStatusStatement(fromSchema=Optional.empty)
+[INFO ] 2021-08-24 22:59:23.594 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SHOW TABLE STATUS LIKE 'tb_user'
+[ERROR] 2021-08-24 22:59:23.651 [ShardingSphere-Command-2] o.a.s.p.f.c.CommandExecutorTask - Exception occur: 
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown database 'sharding-db0'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:944)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3978)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3914)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2530)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2683)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2491)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2449)
+	at com.mysql.jdbc.StatementImpl.executeInternal(StatementImpl.java:845)
+	at com.mysql.jdbc.StatementImpl.execute(StatementImpl.java:939)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:103)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.impl.ProxyStatementExecutorCallback.execute(ProxyStatementExecutorCallback.java:40)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:73)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:44)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:85)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:64)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.syncExecute(ExecutorEngine.java:101)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.parallelExecute(ExecutorEngine.java:97)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.execute(ExecutorEngine.java:82)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutor.execute(JDBCExecutor.java:65)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.ProxyJDBCExecutor.execute(ProxyJDBCExecutor.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.useDriverToExecute(ProxySQLExecutor.java:170)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:127)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:116)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.doExecute(ProxyLockEngine.java:103)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.execute(ProxyLockEngine.java:81)
+	at org.apache.shardingsphere.proxy.backend.communication.DatabaseCommunicationEngine.execute(DatabaseCommunicationEngine.java:99)
+	at org.apache.shardingsphere.proxy.backend.text.data.impl.UnicastDatabaseBackendHandler.execute(UnicastDatabaseBackendHandler.java:57)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.query.text.query.MySQLComQueryPacketExecutor.execute(MySQLComQueryPacketExecutor.java:57)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.executeCommand(CommandExecutorTask.java:93)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.run(CommandExecutorTask.java:71)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2021-08-24 22:59:23.683 [ShardingSphere-Command-2] ShardingSphere-SQL - Logic SQL: SHOW CREATE TABLE `sharding-db0`.`tb_user`
+[INFO ] 2021-08-24 22:59:23.683 [ShardingSphere-Command-2] ShardingSphere-SQL - SQLStatement: MySQLShowCreateTableStatement(table=SimpleTableSegment(tableName=TableNameSegment(startIndex=18, stopIndex=41, identifier=IdentifierValue(value=tb_user, quoteCharacter=BACK_QUOTE)), owner=Optional[org.apache.shardingsphere.sql.parser.sql.common.segment.generic.OwnerSegment@64b7de2f], alias=Optional.empty))
+[INFO ] 2021-08-24 22:59:23.683 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SHOW CREATE TABLE `tb_user_0`
+[INFO ] 2021-08-24 22:59:23.772 [ShardingSphere-Command-2] ShardingSphere-SQL - Logic SQL: SHOW TABLE STATUS LIKE 'tb_user'
+[INFO ] 2021-08-24 22:59:23.772 [ShardingSphere-Command-2] ShardingSphere-SQL - SQLStatement: MySQLShowTableStatusStatement(fromSchema=Optional.empty)
+[INFO ] 2021-08-24 22:59:23.772 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SHOW TABLE STATUS LIKE 'tb_user'
+[INFO ] 2021-08-24 22:59:23.819 [ShardingSphere-Command-2] ShardingSphere-SQL - Logic SQL: SELECT * FROM `tb_user` LIMIT 0,1000
+[INFO ] 2021-08-24 22:59:23.819 [ShardingSphere-Command-2] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional[org.apache.shardingsphere.sql.parser.sql.common.segment.dml.pagination.limit.LimitSegment@548deb14], lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 22:59:23.819 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT * FROM `tb_user_0` ORDER BY id ASC  LIMIT 0,1000
+[INFO ] 2021-08-24 22:59:23.819 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT * FROM `tb_user_1` ORDER BY id ASC  LIMIT 0,1000
+[INFO ] 2021-08-24 22:59:23.819 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT * FROM `tb_user_0` ORDER BY id ASC  LIMIT 0,1000
+[INFO ] 2021-08-24 22:59:23.819 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT * FROM `tb_user_1` ORDER BY id ASC  LIMIT 0,1000
+Thanks for using Atomikos! Evaluate http://www.atomikos.com/Main/ExtremeTransactions for advanced features and professional support
+or register at http://www.atomikos.com/Main/RegisterYourDownload to disable this message and receive FREE tips & advice
+[INFO ] 2021-08-24 23:00:46.369 [main] o.a.s.p.i.i.AbstractBootstrapInitializer - Database name is `MySQL`, version is `5.7.24`
+[INFO ] 2021-08-24 23:00:46.490 [main] o.a.s.p.frontend.ShardingSphereProxy - ShardingSphere-Proxy start success.
+[INFO ] 2021-08-24 23:00:53.105 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SHOW TABLE STATUS LIKE 'tb_user'
+[INFO ] 2021-08-24 23:00:53.106 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLShowTableStatusStatement(fromSchema=Optional.empty)
+[INFO ] 2021-08-24 23:00:53.106 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SHOW TABLE STATUS LIKE 'tb_user'
+[INFO ] 2021-08-24 23:00:53.285 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SHOW CREATE TABLE `sharding-db0`.`tb_user`
+[INFO ] 2021-08-24 23:00:53.286 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLShowCreateTableStatement(table=SimpleTableSegment(tableName=TableNameSegment(startIndex=18, stopIndex=41, identifier=IdentifierValue(value=tb_user, quoteCharacter=BACK_QUOTE)), owner=Optional[org.apache.shardingsphere.sql.parser.sql.common.segment.generic.OwnerSegment@411a267e], alias=Optional.empty))
+[INFO ] 2021-08-24 23:00:53.286 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SHOW CREATE TABLE `tb_user_0`
+[INFO ] 2021-08-24 23:00:53.467 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SELECT * FROM `tb_user` LIMIT 0,1000
+[INFO ] 2021-08-24 23:00:53.467 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional[org.apache.shardingsphere.sql.parser.sql.common.segment.dml.pagination.limit.LimitSegment@798b1868], lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:00:53.467 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT * FROM `tb_user_0` ORDER BY id ASC  LIMIT 0,1000
+[INFO ] 2021-08-24 23:00:53.467 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT * FROM `tb_user_1` ORDER BY id ASC  LIMIT 0,1000
+[INFO ] 2021-08-24 23:00:53.467 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT * FROM `tb_user_0` ORDER BY id ASC  LIMIT 0,1000
+[INFO ] 2021-08-24 23:00:53.467 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT * FROM `tb_user_1` ORDER BY id ASC  LIMIT 0,1000
+[INFO ] 2021-08-24 23:01:09.383 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SHOW TABLE STATUS LIKE 'tb_user'
+[INFO ] 2021-08-24 23:01:09.383 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLShowTableStatusStatement(fromSchema=Optional.empty)
+[INFO ] 2021-08-24 23:01:09.383 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SHOW TABLE STATUS LIKE 'tb_user'
+[INFO ] 2021-08-24 23:01:09.480 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SHOW CREATE TABLE `sharding-db0`.`tb_user`
+[INFO ] 2021-08-24 23:01:09.480 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLShowCreateTableStatement(table=SimpleTableSegment(tableName=TableNameSegment(startIndex=18, stopIndex=41, identifier=IdentifierValue(value=tb_user, quoteCharacter=BACK_QUOTE)), owner=Optional[org.apache.shardingsphere.sql.parser.sql.common.segment.generic.OwnerSegment@26f4883e], alias=Optional.empty))
+[INFO ] 2021-08-24 23:01:09.480 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SHOW CREATE TABLE `tb_user_0`
+[INFO ] 2021-08-24 23:01:09.556 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SELECT * FROM `tb_user` LIMIT 0,1000
+[INFO ] 2021-08-24 23:01:09.556 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional[org.apache.shardingsphere.sql.parser.sql.common.segment.dml.pagination.limit.LimitSegment@6761ee3b], lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:01:09.556 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT * FROM `tb_user_0` ORDER BY id ASC  LIMIT 0,1000
+[INFO ] 2021-08-24 23:01:09.556 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT * FROM `tb_user_1` ORDER BY id ASC  LIMIT 0,1000
+[INFO ] 2021-08-24 23:01:09.556 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT * FROM `tb_user_0` ORDER BY id ASC  LIMIT 0,1000
+[INFO ] 2021-08-24 23:01:09.556 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT * FROM `tb_user_1` ORDER BY id ASC  LIMIT 0,1000
+[INFO ] 2021-08-24 23:01:34.596 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SHOW TABLE STATUS LIKE 'tb_user'
+[INFO ] 2021-08-24 23:01:34.596 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLShowTableStatusStatement(fromSchema=Optional.empty)
+[INFO ] 2021-08-24 23:01:34.596 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SHOW TABLE STATUS LIKE 'tb_user'
+[INFO ] 2021-08-24 23:01:34.986 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SHOW CREATE TABLE `sharding-db0`.`tb_user`
+[INFO ] 2021-08-24 23:01:34.989 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLShowCreateTableStatement(table=SimpleTableSegment(tableName=TableNameSegment(startIndex=18, stopIndex=41, identifier=IdentifierValue(value=tb_user, quoteCharacter=BACK_QUOTE)), owner=Optional[org.apache.shardingsphere.sql.parser.sql.common.segment.generic.OwnerSegment@1f96d2fb], alias=Optional.empty))
+[INFO ] 2021-08-24 23:01:34.989 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SHOW CREATE TABLE `tb_user_0`
+[INFO ] 2021-08-24 23:01:35.091 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SELECT * FROM `tb_user` LIMIT 0,1000
+[INFO ] 2021-08-24 23:01:35.092 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional[org.apache.shardingsphere.sql.parser.sql.common.segment.dml.pagination.limit.LimitSegment@1daf1a9f], lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:01:35.092 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT * FROM `tb_user_0` ORDER BY id ASC  LIMIT 0,1000
+[INFO ] 2021-08-24 23:01:35.092 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT * FROM `tb_user_1` ORDER BY id ASC  LIMIT 0,1000
+[INFO ] 2021-08-24 23:01:35.092 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT * FROM `tb_user_0` ORDER BY id ASC  LIMIT 0,1000
+[INFO ] 2021-08-24 23:01:35.092 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT * FROM `tb_user_1` ORDER BY id ASC  LIMIT 0,1000
+[INFO ] 2021-08-24 23:02:22.562 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SELECT * FROM tb_user
+[INFO ] 2021-08-24 23:02:22.563 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:02:22.563 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT * FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:02:22.563 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT * FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:02:22.563 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT * FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:02:22.563 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT * FROM tb_user_1 ORDER BY id ASC 
+Exception in thread "main" Cannot create property=rules for JavaBean=org.apache.shardingsphere.proxy.config.yaml.YamlProxyRuleConfiguration@6fc6f14e
+ in 'reader', line 105, column 1:
+    schemaName: sharding-db0
+    ^
+Cannot create property=encrypt for JavaBean=org.apache.shardingsphere.sharding.yaml.config.YamlShardingRuleConfiguration@20398b7c
+ in 'reader', line 130, column 3:
+    - !SHARDING
+      ^
+Unable to find property 'encrypt' on class: org.apache.shardingsphere.sharding.yaml.config.YamlShardingRuleConfiguration
+ in 'reader', line 166, column 9:
+            encryptors:
+            ^
+
+ in 'reader', line 130, column 1:
+    - !SHARDING
+    ^
+
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.constructJavaBean2ndStep(Constructor.java:312)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.construct(Constructor.java:189)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructYamlObject.construct(Constructor.java:345)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructObject(BaseConstructor.java:182)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructDocument(BaseConstructor.java:141)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.getSingleData(BaseConstructor.java:127)
+	at org.yaml.snakeyaml.Yaml.loadFromReader(Yaml.java:450)
+	at org.yaml.snakeyaml.Yaml.loadAs(Yaml.java:410)
+	at org.apache.shardingsphere.infra.yaml.engine.YamlEngine.unmarshal(YamlEngine.java:54)
+	at org.apache.shardingsphere.proxy.config.ProxyConfigurationLoader.loadRuleConfiguration(ProxyConfigurationLoader.java:94)
+	at org.apache.shardingsphere.proxy.config.ProxyConfigurationLoader.loadRuleConfigurations(ProxyConfigurationLoader.java:85)
+	at org.apache.shardingsphere.proxy.config.ProxyConfigurationLoader.load(ProxyConfigurationLoader.java:62)
+	at org.apache.shardingsphere.proxy.Bootstrap.main(Bootstrap.java:47)
+Caused by: Cannot create property=encrypt for JavaBean=org.apache.shardingsphere.sharding.yaml.config.YamlShardingRuleConfiguration@20398b7c
+ in 'reader', line 130, column 3:
+    - !SHARDING
+      ^
+Unable to find property 'encrypt' on class: org.apache.shardingsphere.sharding.yaml.config.YamlShardingRuleConfiguration
+ in 'reader', line 166, column 9:
+            encryptors:
+            ^
+
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.constructJavaBean2ndStep(Constructor.java:312)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.construct(Constructor.java:189)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructYamlObject.construct(Constructor.java:345)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructObject(BaseConstructor.java:182)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructSequenceStep2(BaseConstructor.java:275)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructSequence(BaseConstructor.java:246)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructSequence.construct(Constructor.java:536)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructObject(BaseConstructor.java:182)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.constructJavaBean2ndStep(Constructor.java:297)
+	... 12 more
+Caused by: org.yaml.snakeyaml.error.YAMLException: Unable to find property 'encrypt' on class: org.apache.shardingsphere.sharding.yaml.config.YamlShardingRuleConfiguration
+	at org.yaml.snakeyaml.introspector.PropertyUtils.getProperty(PropertyUtils.java:132)
+	at org.yaml.snakeyaml.introspector.PropertyUtils.getProperty(PropertyUtils.java:121)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.getProperty(Constructor.java:322)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.constructJavaBean2ndStep(Constructor.java:240)
+	... 20 more
+Thanks for using Atomikos! Evaluate http://www.atomikos.com/Main/ExtremeTransactions for advanced features and professional support
+or register at http://www.atomikos.com/Main/RegisterYourDownload to disable this message and receive FREE tips & advice
+[INFO ] 2021-08-24 23:16:37.795 [main] o.a.s.p.i.i.AbstractBootstrapInitializer - Database name is `MySQL`, version is `5.7.24`
+[INFO ] 2021-08-24 23:16:37.931 [main] o.a.s.p.frontend.ShardingSphereProxy - ShardingSphere-Proxy start success.
+[INFO ] 2021-08-24 23:16:43.994 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SELECT * FROM tb_user
+[INFO ] 2021-08-24 23:16:43.995 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:16:43.995 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT * FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:16:43.995 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT * FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:16:43.995 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT * FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:16:43.995 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT * FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:16:47.504 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SELECT * FROM tb_user
+[INFO ] 2021-08-24 23:16:47.504 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:16:47.504 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT * FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:16:47.505 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT * FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:16:47.505 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT * FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:16:47.505 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT * FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:16:49.901 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SELECT * FROM tb_user
+[INFO ] 2021-08-24 23:16:49.901 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:16:49.901 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT * FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:16:49.901 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT * FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:16:49.901 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT * FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:16:49.902 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT * FROM tb_user_1 ORDER BY id ASC 
+Thanks for using Atomikos! Evaluate http://www.atomikos.com/Main/ExtremeTransactions for advanced features and professional support
+or register at http://www.atomikos.com/Main/RegisterYourDownload to disable this message and receive FREE tips & advice
+[INFO ] 2021-08-24 23:18:01.115 [main] o.a.s.p.i.i.AbstractBootstrapInitializer - Database name is `MySQL`, version is `5.7.24`
+[INFO ] 2021-08-24 23:18:01.227 [main] o.a.s.p.frontend.ShardingSphereProxy - ShardingSphere-Proxy start success.
+[INFO ] 2021-08-24 23:18:05.218 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SELECT * FROM tb_user
+[INFO ] 2021-08-24 23:18:05.219 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:18:05.219 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:18:05.219 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:18:05.219 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:18:05.219 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_1 ORDER BY id ASC 
+[ERROR] 2021-08-24 23:18:05.406 [ShardingSphere-Command-1] o.a.s.p.f.c.CommandExecutorTask - Exception occur: 
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'tb_user.id' in 'field list'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:944)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3978)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3914)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2530)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2683)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2491)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2449)
+	at com.mysql.jdbc.StatementImpl.executeInternal(StatementImpl.java:845)
+	at com.mysql.jdbc.StatementImpl.execute(StatementImpl.java:939)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:103)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.impl.ProxyStatementExecutorCallback.execute(ProxyStatementExecutorCallback.java:40)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:73)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:44)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:85)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:64)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.syncExecute(ExecutorEngine.java:101)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.parallelExecute(ExecutorEngine.java:97)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.execute(ExecutorEngine.java:82)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutor.execute(JDBCExecutor.java:65)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.ProxyJDBCExecutor.execute(ProxyJDBCExecutor.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.useDriverToExecute(ProxySQLExecutor.java:170)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:127)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:116)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.doExecute(ProxyLockEngine.java:103)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.execute(ProxyLockEngine.java:81)
+	at org.apache.shardingsphere.proxy.backend.communication.DatabaseCommunicationEngine.execute(DatabaseCommunicationEngine.java:99)
+	at org.apache.shardingsphere.proxy.backend.text.data.impl.SchemaAssignedDatabaseBackendHandler.execute(SchemaAssignedDatabaseBackendHandler.java:55)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.query.text.query.MySQLComQueryPacketExecutor.execute(MySQLComQueryPacketExecutor.java:57)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.executeCommand(CommandExecutorTask.java:93)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.run(CommandExecutorTask.java:71)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2021-08-24 23:18:12.775 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SELECT * FROM tb_user
+[INFO ] 2021-08-24 23:18:12.776 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:18:12.776 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:18:12.776 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:18:12.776 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:18:12.776 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_1 ORDER BY id ASC 
+[ERROR] 2021-08-24 23:18:12.907 [ShardingSphere-Command-1] o.a.s.p.f.c.CommandExecutorTask - Exception occur: 
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'tb_user.id' in 'field list'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:944)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3978)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3914)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2530)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2683)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2491)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2449)
+	at com.mysql.jdbc.StatementImpl.executeInternal(StatementImpl.java:845)
+	at com.mysql.jdbc.StatementImpl.execute(StatementImpl.java:939)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:103)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.impl.ProxyStatementExecutorCallback.execute(ProxyStatementExecutorCallback.java:40)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:73)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:44)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:85)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:64)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.syncExecute(ExecutorEngine.java:101)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.parallelExecute(ExecutorEngine.java:97)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.execute(ExecutorEngine.java:82)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutor.execute(JDBCExecutor.java:65)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.ProxyJDBCExecutor.execute(ProxyJDBCExecutor.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.useDriverToExecute(ProxySQLExecutor.java:170)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:127)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:116)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.doExecute(ProxyLockEngine.java:103)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.execute(ProxyLockEngine.java:81)
+	at org.apache.shardingsphere.proxy.backend.communication.DatabaseCommunicationEngine.execute(DatabaseCommunicationEngine.java:99)
+	at org.apache.shardingsphere.proxy.backend.text.data.impl.SchemaAssignedDatabaseBackendHandler.execute(SchemaAssignedDatabaseBackendHandler.java:55)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.query.text.query.MySQLComQueryPacketExecutor.execute(MySQLComQueryPacketExecutor.java:57)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.executeCommand(CommandExecutorTask.java:93)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.run(CommandExecutorTask.java:71)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Thanks for using Atomikos! Evaluate http://www.atomikos.com/Main/ExtremeTransactions for advanced features and professional support
+or register at http://www.atomikos.com/Main/RegisterYourDownload to disable this message and receive FREE tips & advice
+[ERROR] 2021-08-24 23:22:41.670 [main] c.a.persistence.imp.LogFileLock - ERROR: the specified log seems to be in use already: xa_tx in ./logs/. Make sure that no other instance is running, or kill any pending process if needed.
+[ERROR] 2021-08-24 23:22:41.670 [main] c.a.persistence.imp.LogFileLock - ERROR: the specified log seems to be in use already: xa_tx in ./logs/. Make sure that no other instance is running, or kill any pending process if needed.
+Exception in thread "main" com.atomikos.icatch.SysException: Error in init: Log already in use? xa_tx in ./logs/
+	at com.atomikos.icatch.provider.imp.AssemblerImp.createRepository(AssemblerImp.java:181)
+	at com.atomikos.icatch.provider.imp.AssemblerImp.assembleTransactionService(AssemblerImp.java:156)
+	at com.atomikos.icatch.config.Configuration.assembleSystemComponents(Configuration.java:485)
+	at com.atomikos.icatch.config.Configuration.init(Configuration.java:448)
+	at com.atomikos.icatch.config.UserTransactionServiceImp.initialize(UserTransactionServiceImp.java:105)
+	at com.atomikos.icatch.config.UserTransactionServiceImp.init(UserTransactionServiceImp.java:219)
+	at org.apache.shardingsphere.transaction.xa.atomikos.manager.AtomikosTransactionManager.init(AtomikosTransactionManager.java:46)
+	at org.apache.shardingsphere.transaction.xa.XAShardingTransactionManager.init(XAShardingTransactionManager.java:54)
+	at org.apache.shardingsphere.transaction.ShardingTransactionManagerEngine.lambda$init$0(ShardingTransactionManagerEngine.java:67)
+	at java.util.Map.forEach(Map.java:630)
+	at org.apache.shardingsphere.transaction.ShardingTransactionManagerEngine.init(ShardingTransactionManagerEngine.java:67)
+	at org.apache.shardingsphere.proxy.initializer.impl.AbstractBootstrapInitializer.createTransactionContexts(AbstractBootstrapInitializer.java:108)
+	at org.apache.shardingsphere.proxy.initializer.impl.AbstractBootstrapInitializer.init(AbstractBootstrapInitializer.java:73)
+	at org.apache.shardingsphere.proxy.Bootstrap.main(Bootstrap.java:48)
+Caused by: com.atomikos.recovery.LogException: Log already in use? xa_tx in ./logs/
+	at com.atomikos.persistence.imp.LogFileLock.acquireLock(LogFileLock.java:59)
+	at com.atomikos.recovery.imp.FileSystemRepository.init(FileSystemRepository.java:55)
+	at com.atomikos.icatch.provider.imp.AssemblerImp.createCoordinatorLogEntryRepository(AssemblerImp.java:229)
+	at com.atomikos.icatch.provider.imp.AssemblerImp.createRepository(AssemblerImp.java:179)
+	... 13 more
+Thanks for using Atomikos! Evaluate http://www.atomikos.com/Main/ExtremeTransactions for advanced features and professional support
+or register at http://www.atomikos.com/Main/RegisterYourDownload to disable this message and receive FREE tips & advice
+[INFO ] 2021-08-24 23:23:13.719 [main] o.a.s.p.i.i.AbstractBootstrapInitializer - Database name is `MySQL`, version is `5.7.24`
+[INFO ] 2021-08-24 23:23:13.838 [main] o.a.s.p.frontend.ShardingSphereProxy - ShardingSphere-Proxy start success.
+[INFO ] 2021-08-24 23:23:23.751 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SELECT * FROM tb_user
+[INFO ] 2021-08-24 23:23:23.752 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:23:23.752 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:23:23.752 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:23:23.752 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:23:23.752 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_1 ORDER BY id ASC 
+[ERROR] 2021-08-24 23:23:23.947 [ShardingSphere-Command-1] o.a.s.p.f.c.CommandExecutorTask - Exception occur: 
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'tb_user.id' in 'field list'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:944)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3978)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3914)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2530)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2683)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2491)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2449)
+	at com.mysql.jdbc.StatementImpl.executeInternal(StatementImpl.java:845)
+	at com.mysql.jdbc.StatementImpl.execute(StatementImpl.java:939)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:103)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.impl.ProxyStatementExecutorCallback.execute(ProxyStatementExecutorCallback.java:40)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:73)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:44)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:85)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:64)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.syncExecute(ExecutorEngine.java:101)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.parallelExecute(ExecutorEngine.java:97)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.execute(ExecutorEngine.java:82)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutor.execute(JDBCExecutor.java:65)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.ProxyJDBCExecutor.execute(ProxyJDBCExecutor.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.useDriverToExecute(ProxySQLExecutor.java:170)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:127)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:116)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.doExecute(ProxyLockEngine.java:103)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.execute(ProxyLockEngine.java:81)
+	at org.apache.shardingsphere.proxy.backend.communication.DatabaseCommunicationEngine.execute(DatabaseCommunicationEngine.java:99)
+	at org.apache.shardingsphere.proxy.backend.text.data.impl.SchemaAssignedDatabaseBackendHandler.execute(SchemaAssignedDatabaseBackendHandler.java:55)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.query.text.query.MySQLComQueryPacketExecutor.execute(MySQLComQueryPacketExecutor.java:57)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.executeCommand(CommandExecutorTask.java:93)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.run(CommandExecutorTask.java:71)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "main" java.lang.IllegalStateException: Data sources configuration in file `config-encrypt.yaml` is required.
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:589)
+	at org.apache.shardingsphere.proxy.config.ProxyConfigurationLoader.loadRuleConfiguration(ProxyConfigurationLoader.java:102)
+	at org.apache.shardingsphere.proxy.config.ProxyConfigurationLoader.loadRuleConfigurations(ProxyConfigurationLoader.java:85)
+	at org.apache.shardingsphere.proxy.config.ProxyConfigurationLoader.load(ProxyConfigurationLoader.java:62)
+	at org.apache.shardingsphere.proxy.Bootstrap.main(Bootstrap.java:47)
+Thanks for using Atomikos! Evaluate http://www.atomikos.com/Main/ExtremeTransactions for advanced features and professional support
+or register at http://www.atomikos.com/Main/RegisterYourDownload to disable this message and receive FREE tips & advice
+[INFO ] 2021-08-24 23:27:12.680 [main] o.a.s.p.i.i.AbstractBootstrapInitializer - Database name is `MySQL`, version is `5.7.24`
+[INFO ] 2021-08-24 23:27:12.788 [main] o.a.s.p.frontend.ShardingSphereProxy - ShardingSphere-Proxy start success.
+[INFO ] 2021-08-24 23:27:22.629 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SHOW VARIABLES LIKE 'character_set_database'
+[INFO ] 2021-08-24 23:27:22.630 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLShowOtherStatement()
+[INFO ] 2021-08-24 23:27:22.630 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SHOW VARIABLES LIKE 'character_set_database'
+[INFO ] 2021-08-24 23:27:22.881 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SHOW TABLE STATUS LIKE 'tb_user'
+[INFO ] 2021-08-24 23:27:22.881 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLShowTableStatusStatement(fromSchema=Optional.empty)
+[INFO ] 2021-08-24 23:27:22.881 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SHOW TABLE STATUS LIKE 'tb_user'
+[INFO ] 2021-08-24 23:27:23.008 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SHOW CREATE TABLE `sharding-db`.`tb_user`
+[INFO ] 2021-08-24 23:27:23.008 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLShowCreateTableStatement(table=SimpleTableSegment(tableName=TableNameSegment(startIndex=18, stopIndex=40, identifier=IdentifierValue(value=tb_user, quoteCharacter=BACK_QUOTE)), owner=Optional[org.apache.shardingsphere.sql.parser.sql.common.segment.generic.OwnerSegment@259ecdde], alias=Optional.empty))
+[INFO ] 2021-08-24 23:27:23.009 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SHOW CREATE TABLE `tb_user_0`
+[INFO ] 2021-08-24 23:27:23.899 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SELECT * FROM tb_user
+[INFO ] 2021-08-24 23:27:23.900 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:27:23.900 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:27:23.900 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:27:23.900 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:27:23.900 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_1 ORDER BY id ASC 
+[ERROR] 2021-08-24 23:27:24.063 [ShardingSphere-Command-1] o.a.s.p.f.c.CommandExecutorTask - Exception occur: 
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'tb_user.id' in 'field list'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:944)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3978)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3914)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2530)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2683)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2491)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2449)
+	at com.mysql.jdbc.StatementImpl.executeInternal(StatementImpl.java:845)
+	at com.mysql.jdbc.StatementImpl.execute(StatementImpl.java:939)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:103)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.impl.ProxyStatementExecutorCallback.execute(ProxyStatementExecutorCallback.java:40)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:73)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:44)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:85)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:64)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.syncExecute(ExecutorEngine.java:101)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.parallelExecute(ExecutorEngine.java:97)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.execute(ExecutorEngine.java:82)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutor.execute(JDBCExecutor.java:65)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.ProxyJDBCExecutor.execute(ProxyJDBCExecutor.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.useDriverToExecute(ProxySQLExecutor.java:170)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:127)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:116)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.doExecute(ProxyLockEngine.java:103)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.execute(ProxyLockEngine.java:81)
+	at org.apache.shardingsphere.proxy.backend.communication.DatabaseCommunicationEngine.execute(DatabaseCommunicationEngine.java:99)
+	at org.apache.shardingsphere.proxy.backend.text.data.impl.SchemaAssignedDatabaseBackendHandler.execute(SchemaAssignedDatabaseBackendHandler.java:55)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.query.text.query.MySQLComQueryPacketExecutor.execute(MySQLComQueryPacketExecutor.java:57)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.executeCommand(CommandExecutorTask.java:93)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.run(CommandExecutorTask.java:71)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2021-08-24 23:27:25.671 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SELECT * FROM tb_user
+[INFO ] 2021-08-24 23:27:25.671 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:27:25.671 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:27:25.671 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:27:25.671 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:27:25.671 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_1 ORDER BY id ASC 
+[ERROR] 2021-08-24 23:27:25.805 [ShardingSphere-Command-1] o.a.s.p.f.c.CommandExecutorTask - Exception occur: 
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'tb_user.id' in 'field list'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:944)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3978)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3914)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2530)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2683)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2491)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2449)
+	at com.mysql.jdbc.StatementImpl.executeInternal(StatementImpl.java:845)
+	at com.mysql.jdbc.StatementImpl.execute(StatementImpl.java:939)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:103)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.impl.ProxyStatementExecutorCallback.execute(ProxyStatementExecutorCallback.java:40)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:73)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:44)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:85)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:64)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.syncExecute(ExecutorEngine.java:101)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.parallelExecute(ExecutorEngine.java:97)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.execute(ExecutorEngine.java:82)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutor.execute(JDBCExecutor.java:65)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.ProxyJDBCExecutor.execute(ProxyJDBCExecutor.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.useDriverToExecute(ProxySQLExecutor.java:170)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:127)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:116)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.doExecute(ProxyLockEngine.java:103)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.execute(ProxyLockEngine.java:81)
+	at org.apache.shardingsphere.proxy.backend.communication.DatabaseCommunicationEngine.execute(DatabaseCommunicationEngine.java:99)
+	at org.apache.shardingsphere.proxy.backend.text.data.impl.SchemaAssignedDatabaseBackendHandler.execute(SchemaAssignedDatabaseBackendHandler.java:55)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.query.text.query.MySQLComQueryPacketExecutor.execute(MySQLComQueryPacketExecutor.java:57)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.executeCommand(CommandExecutorTask.java:93)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.run(CommandExecutorTask.java:71)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Exception in thread "main" Cannot create property=rules for JavaBean=org.apache.shardingsphere.proxy.config.yaml.YamlProxyRuleConfiguration@20398b7c
+ in 'reader', line 105, column 1:
+    schemaName: sharding-db
+    ^
+Cannot create property=encryptors for JavaBean=org.apache.shardingsphere.sharding.yaml.config.YamlShardingRuleConfiguration@71423665
+ in 'reader', line 130, column 3:
+    - !SHARDING
+      ^
+Unable to find property 'encryptors' on class: org.apache.shardingsphere.sharding.yaml.config.YamlShardingRuleConfiguration
+ in 'reader', line 166, column 4:
+       aes_encryptor:
+       ^
+
+ in 'reader', line 130, column 1:
+    - !SHARDING
+    ^
+
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.constructJavaBean2ndStep(Constructor.java:312)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.construct(Constructor.java:189)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructYamlObject.construct(Constructor.java:345)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructObject(BaseConstructor.java:182)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructDocument(BaseConstructor.java:141)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.getSingleData(BaseConstructor.java:127)
+	at org.yaml.snakeyaml.Yaml.loadFromReader(Yaml.java:450)
+	at org.yaml.snakeyaml.Yaml.loadAs(Yaml.java:410)
+	at org.apache.shardingsphere.infra.yaml.engine.YamlEngine.unmarshal(YamlEngine.java:54)
+	at org.apache.shardingsphere.proxy.config.ProxyConfigurationLoader.loadRuleConfiguration(ProxyConfigurationLoader.java:94)
+	at org.apache.shardingsphere.proxy.config.ProxyConfigurationLoader.loadRuleConfigurations(ProxyConfigurationLoader.java:85)
+	at org.apache.shardingsphere.proxy.config.ProxyConfigurationLoader.load(ProxyConfigurationLoader.java:62)
+	at org.apache.shardingsphere.proxy.Bootstrap.main(Bootstrap.java:47)
+Caused by: Cannot create property=encryptors for JavaBean=org.apache.shardingsphere.sharding.yaml.config.YamlShardingRuleConfiguration@71423665
+ in 'reader', line 130, column 3:
+    - !SHARDING
+      ^
+Unable to find property 'encryptors' on class: org.apache.shardingsphere.sharding.yaml.config.YamlShardingRuleConfiguration
+ in 'reader', line 166, column 4:
+       aes_encryptor:
+       ^
+
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.constructJavaBean2ndStep(Constructor.java:312)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.construct(Constructor.java:189)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructYamlObject.construct(Constructor.java:345)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructObject(BaseConstructor.java:182)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructSequenceStep2(BaseConstructor.java:275)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructSequence(BaseConstructor.java:246)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructSequence.construct(Constructor.java:536)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructObject(BaseConstructor.java:182)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.constructJavaBean2ndStep(Constructor.java:297)
+	... 12 more
+Caused by: org.yaml.snakeyaml.error.YAMLException: Unable to find property 'encryptors' on class: org.apache.shardingsphere.sharding.yaml.config.YamlShardingRuleConfiguration
+	at org.yaml.snakeyaml.introspector.PropertyUtils.getProperty(PropertyUtils.java:132)
+	at org.yaml.snakeyaml.introspector.PropertyUtils.getProperty(PropertyUtils.java:121)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.getProperty(Constructor.java:322)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.constructJavaBean2ndStep(Constructor.java:240)
+	... 20 more
+Exception in thread "main" Cannot create property=rules for JavaBean=org.apache.shardingsphere.proxy.config.yaml.YamlProxyRuleConfiguration@27c20538
+ in 'reader', line 105, column 1:
+    schemaName: sharding-db
+    ^
+Cannot create property=tables for JavaBean=org.apache.shardingsphere.encrypt.yaml.config.YamlEncryptRuleConfiguration@56ac3a89
+ in 'reader', line 130, column 3:
+    - !ENCRYPT
+      ^
+Cannot create property=actualDataNodes for JavaBean=org.apache.shardingsphere.encrypt.yaml.config.rule.YamlEncryptTableRuleConfiguration@490ab905
+ in 'reader', line 133, column 6:
+         actualDataNodes: ds_${0..1}.tb_u ... 
+         ^
+Unable to find property 'actualDataNodes' on class: org.apache.shardingsphere.encrypt.yaml.config.rule.YamlEncryptTableRuleConfiguration
+ in 'reader', line 133, column 23:
+         actualDataNodes: ds_${0..1}.tb_user_${0..1}
+                          ^
+
+ in 'reader', line 132, column 4:
+       tb_user:
+       ^
+
+ in 'reader', line 130, column 1:
+    - !ENCRYPT
+    ^
+
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.constructJavaBean2ndStep(Constructor.java:312)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.construct(Constructor.java:189)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructYamlObject.construct(Constructor.java:345)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructObject(BaseConstructor.java:182)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructDocument(BaseConstructor.java:141)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.getSingleData(BaseConstructor.java:127)
+	at org.yaml.snakeyaml.Yaml.loadFromReader(Yaml.java:450)
+	at org.yaml.snakeyaml.Yaml.loadAs(Yaml.java:410)
+	at org.apache.shardingsphere.infra.yaml.engine.YamlEngine.unmarshal(YamlEngine.java:54)
+	at org.apache.shardingsphere.proxy.config.ProxyConfigurationLoader.loadRuleConfiguration(ProxyConfigurationLoader.java:94)
+	at org.apache.shardingsphere.proxy.config.ProxyConfigurationLoader.loadRuleConfigurations(ProxyConfigurationLoader.java:85)
+	at org.apache.shardingsphere.proxy.config.ProxyConfigurationLoader.load(ProxyConfigurationLoader.java:62)
+	at org.apache.shardingsphere.proxy.Bootstrap.main(Bootstrap.java:47)
+Caused by: Cannot create property=tables for JavaBean=org.apache.shardingsphere.encrypt.yaml.config.YamlEncryptRuleConfiguration@56ac3a89
+ in 'reader', line 130, column 3:
+    - !ENCRYPT
+      ^
+Cannot create property=actualDataNodes for JavaBean=org.apache.shardingsphere.encrypt.yaml.config.rule.YamlEncryptTableRuleConfiguration@490ab905
+ in 'reader', line 133, column 6:
+         actualDataNodes: ds_${0..1}.tb_u ... 
+         ^
+Unable to find property 'actualDataNodes' on class: org.apache.shardingsphere.encrypt.yaml.config.rule.YamlEncryptTableRuleConfiguration
+ in 'reader', line 133, column 23:
+         actualDataNodes: ds_${0..1}.tb_user_${0..1}
+                          ^
+
+ in 'reader', line 132, column 4:
+       tb_user:
+       ^
+
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.constructJavaBean2ndStep(Constructor.java:312)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.construct(Constructor.java:189)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructYamlObject.construct(Constructor.java:345)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructObject(BaseConstructor.java:182)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructSequenceStep2(BaseConstructor.java:275)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructSequence(BaseConstructor.java:246)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructSequence.construct(Constructor.java:536)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructObject(BaseConstructor.java:182)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.constructJavaBean2ndStep(Constructor.java:297)
+	... 12 more
+Caused by: Cannot create property=actualDataNodes for JavaBean=org.apache.shardingsphere.encrypt.yaml.config.rule.YamlEncryptTableRuleConfiguration@490ab905
+ in 'reader', line 133, column 6:
+         actualDataNodes: ds_${0..1}.tb_u ... 
+         ^
+Unable to find property 'actualDataNodes' on class: org.apache.shardingsphere.encrypt.yaml.config.rule.YamlEncryptTableRuleConfiguration
+ in 'reader', line 133, column 23:
+         actualDataNodes: ds_${0..1}.tb_user_${0..1}
+                          ^
+
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.constructJavaBean2ndStep(Constructor.java:312)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.construct(Constructor.java:189)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructObject(BaseConstructor.java:182)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructMapping2ndStep(BaseConstructor.java:373)
+	at org.yaml.snakeyaml.constructor.SafeConstructor.constructMapping2ndStep(SafeConstructor.java:147)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructMapping(BaseConstructor.java:354)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.construct(Constructor.java:170)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructObject(BaseConstructor.java:182)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.constructJavaBean2ndStep(Constructor.java:297)
+	... 20 more
+Caused by: org.yaml.snakeyaml.error.YAMLException: Unable to find property 'actualDataNodes' on class: org.apache.shardingsphere.encrypt.yaml.config.rule.YamlEncryptTableRuleConfiguration
+	at org.yaml.snakeyaml.introspector.PropertyUtils.getProperty(PropertyUtils.java:132)
+	at org.yaml.snakeyaml.introspector.PropertyUtils.getProperty(PropertyUtils.java:121)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.getProperty(Constructor.java:322)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.constructJavaBean2ndStep(Constructor.java:240)
+	... 28 more
+Thanks for using Atomikos! Evaluate http://www.atomikos.com/Main/ExtremeTransactions for advanced features and professional support
+or register at http://www.atomikos.com/Main/RegisterYourDownload to disable this message and receive FREE tips & advice
+[INFO ] 2021-08-24 23:34:51.934 [main] o.a.s.p.i.i.AbstractBootstrapInitializer - Database name is `MySQL`, version is `5.7.24`
+[INFO ] 2021-08-24 23:34:52.047 [main] o.a.s.p.frontend.ShardingSphereProxy - ShardingSphere-Proxy start success.
+[INFO ] 2021-08-24 23:36:18.024 [ShardingSphere-Command-2] ShardingSphere-SQL - Logic SQL: SHOW VARIABLES LIKE 'character_set_database'
+[INFO ] 2021-08-24 23:36:18.025 [ShardingSphere-Command-2] ShardingSphere-SQL - SQLStatement: MySQLShowOtherStatement()
+[INFO ] 2021-08-24 23:36:18.025 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SHOW VARIABLES LIKE 'character_set_database'
+[INFO ] 2021-08-24 23:36:27.547 [ShardingSphere-Command-2] ShardingSphere-SQL - Logic SQL: SELECT * FROM tb_user
+[INFO ] 2021-08-24 23:36:27.547 [ShardingSphere-Command-2] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:36:27.547 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT * FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:36:27.547 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT * FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:36:27.547 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT * FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:36:27.547 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT * FROM tb_user_1 ORDER BY id ASC 
+Thanks for using Atomikos! Evaluate http://www.atomikos.com/Main/ExtremeTransactions for advanced features and professional support
+or register at http://www.atomikos.com/Main/RegisterYourDownload to disable this message and receive FREE tips & advice
+[INFO ] 2021-08-24 23:37:11.304 [main] o.a.s.p.i.i.AbstractBootstrapInitializer - Database name is `MySQL`, version is `5.7.24`
+[INFO ] 2021-08-24 23:37:11.418 [main] o.a.s.p.frontend.ShardingSphereProxy - ShardingSphere-Proxy start success.
+[INFO ] 2021-08-24 23:37:22.201 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SHOW VARIABLES LIKE 'character_set_database'
+[INFO ] 2021-08-24 23:37:22.203 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLShowOtherStatement()
+[INFO ] 2021-08-24 23:37:22.203 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SHOW VARIABLES LIKE 'character_set_database'
+[INFO ] 2021-08-24 23:37:24.844 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SELECT * FROM tb_user
+[INFO ] 2021-08-24 23:37:24.845 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:37:24.845 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:37:24.845 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:37:24.845 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:37:24.845 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_1 ORDER BY id ASC 
+[ERROR] 2021-08-24 23:37:24.995 [ShardingSphere-Command-1] o.a.s.p.f.c.CommandExecutorTask - Exception occur: 
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'tb_user.id' in 'field list'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:944)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3978)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3914)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2530)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2683)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2491)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2449)
+	at com.mysql.jdbc.StatementImpl.executeInternal(StatementImpl.java:845)
+	at com.mysql.jdbc.StatementImpl.execute(StatementImpl.java:939)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:103)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.impl.ProxyStatementExecutorCallback.execute(ProxyStatementExecutorCallback.java:40)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:73)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:44)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:85)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:64)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.syncExecute(ExecutorEngine.java:101)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.parallelExecute(ExecutorEngine.java:97)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.execute(ExecutorEngine.java:82)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutor.execute(JDBCExecutor.java:65)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.ProxyJDBCExecutor.execute(ProxyJDBCExecutor.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.useDriverToExecute(ProxySQLExecutor.java:170)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:127)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:116)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.doExecute(ProxyLockEngine.java:103)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.execute(ProxyLockEngine.java:81)
+	at org.apache.shardingsphere.proxy.backend.communication.DatabaseCommunicationEngine.execute(DatabaseCommunicationEngine.java:99)
+	at org.apache.shardingsphere.proxy.backend.text.data.impl.SchemaAssignedDatabaseBackendHandler.execute(SchemaAssignedDatabaseBackendHandler.java:55)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.query.text.query.MySQLComQueryPacketExecutor.execute(MySQLComQueryPacketExecutor.java:57)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.executeCommand(CommandExecutorTask.java:93)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.run(CommandExecutorTask.java:71)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Thanks for using Atomikos! Evaluate http://www.atomikos.com/Main/ExtremeTransactions for advanced features and professional support
+or register at http://www.atomikos.com/Main/RegisterYourDownload to disable this message and receive FREE tips & advice
+[INFO ] 2021-08-24 23:38:57.263 [main] o.a.s.p.i.i.AbstractBootstrapInitializer - Database name is `MySQL`, version is `5.7.24`
+[INFO ] 2021-08-24 23:38:57.368 [main] o.a.s.p.frontend.ShardingSphereProxy - ShardingSphere-Proxy start success.
+[INFO ] 2021-08-24 23:38:59.536 [ShardingSphere-Command-0] ShardingSphere-SQL - Logic SQL: SELECT * FROM tb_user
+[INFO ] 2021-08-24 23:38:59.537 [ShardingSphere-Command-0] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:38:59.537 [ShardingSphere-Command-0] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT * FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:38:59.537 [ShardingSphere-Command-0] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT * FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:38:59.537 [ShardingSphere-Command-0] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT * FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:38:59.537 [ShardingSphere-Command-0] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT * FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:39:07.401 [ShardingSphere-Command-0] ShardingSphere-SQL - Logic SQL: SELECT tb_user.id FROM tb_user
+[INFO ] 2021-08-24 23:39:07.401 [ShardingSphere-Command-0] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:39:07.401 [ShardingSphere-Command-0] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT tb_user_0.id , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:39:07.401 [ShardingSphere-Command-0] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT tb_user_1.id , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:39:07.401 [ShardingSphere-Command-0] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT tb_user_0.id , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:39:07.401 [ShardingSphere-Command-0] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT tb_user_1.id , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+Thanks for using Atomikos! Evaluate http://www.atomikos.com/Main/ExtremeTransactions for advanced features and professional support
+or register at http://www.atomikos.com/Main/RegisterYourDownload to disable this message and receive FREE tips & advice
+[INFO ] 2021-08-24 23:43:48.808 [main] o.a.s.p.i.i.AbstractBootstrapInitializer - Database name is `MySQL`, version is `5.7.24`
+[INFO ] 2021-08-24 23:43:48.929 [main] o.a.s.p.frontend.ShardingSphereProxy - ShardingSphere-Proxy start success.
+[INFO ] 2021-08-24 23:43:50.047 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SELECT tb_user.id FROM tb_user
+[INFO ] 2021-08-24 23:43:50.048 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:43:50.048 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT tb_user_0.id , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:43:50.048 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT tb_user_1.id , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:43:50.048 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT tb_user_0.id , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:43:50.048 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT tb_user_1.id , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:43:51.287 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SELECT tb_user.id FROM tb_user
+[INFO ] 2021-08-24 23:43:51.287 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:43:51.287 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT tb_user_0.id , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:43:51.287 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT tb_user_1.id , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:43:51.287 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT tb_user_0.id , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:43:51.287 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT tb_user_1.id , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:43:55.670 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SELECT tb_user.id FROM tb_user
+[INFO ] 2021-08-24 23:43:55.670 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:43:55.670 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT tb_user_0.id , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:43:55.670 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT tb_user_1.id , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:43:55.670 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT tb_user_0.id , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:43:55.670 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT tb_user_1.id , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:44:10.189 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SELECT * FROM tb_user
+[INFO ] 2021-08-24 23:44:10.190 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:44:10.190 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:44:10.190 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:44:10.190 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:44:10.190 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_1 ORDER BY id ASC 
+[ERROR] 2021-08-24 23:44:10.341 [ShardingSphere-Command-1] o.a.s.p.f.c.CommandExecutorTask - Exception occur: 
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'tb_user.id' in 'field list'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:944)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3978)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3914)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2530)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2683)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2491)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2449)
+	at com.mysql.jdbc.StatementImpl.executeInternal(StatementImpl.java:845)
+	at com.mysql.jdbc.StatementImpl.execute(StatementImpl.java:939)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:103)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.impl.ProxyStatementExecutorCallback.execute(ProxyStatementExecutorCallback.java:40)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:73)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:44)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:85)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:64)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.syncExecute(ExecutorEngine.java:101)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.parallelExecute(ExecutorEngine.java:97)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.execute(ExecutorEngine.java:82)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutor.execute(JDBCExecutor.java:65)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.ProxyJDBCExecutor.execute(ProxyJDBCExecutor.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.useDriverToExecute(ProxySQLExecutor.java:170)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:127)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:116)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.doExecute(ProxyLockEngine.java:103)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.execute(ProxyLockEngine.java:81)
+	at org.apache.shardingsphere.proxy.backend.communication.DatabaseCommunicationEngine.execute(DatabaseCommunicationEngine.java:99)
+	at org.apache.shardingsphere.proxy.backend.text.data.impl.SchemaAssignedDatabaseBackendHandler.execute(SchemaAssignedDatabaseBackendHandler.java:55)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.query.text.query.MySQLComQueryPacketExecutor.execute(MySQLComQueryPacketExecutor.java:57)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.executeCommand(CommandExecutorTask.java:93)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.run(CommandExecutorTask.java:71)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2021-08-24 23:44:34.081 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SELECT tb_user.id,tb_user.name,tb_user,card_id FROM tb_user
+[INFO ] 2021-08-24 23:44:34.082 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:44:34.082 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT tb_user_0.id,tb_user_0.name AS name,tb_user,card_id , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:44:34.082 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT tb_user_1.id,tb_user_1.name AS name,tb_user,card_id , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:44:34.082 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT tb_user_0.id,tb_user_0.name AS name,tb_user,card_id , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:44:34.082 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT tb_user_1.id,tb_user_1.name AS name,tb_user,card_id , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+[ERROR] 2021-08-24 23:44:34.214 [ShardingSphere-Command-1] o.a.s.p.f.c.CommandExecutorTask - Exception occur: 
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'tb_user' in 'field list'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:944)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3978)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3914)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2530)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2683)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2491)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2449)
+	at com.mysql.jdbc.StatementImpl.executeInternal(StatementImpl.java:845)
+	at com.mysql.jdbc.StatementImpl.execute(StatementImpl.java:939)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:103)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.impl.ProxyStatementExecutorCallback.execute(ProxyStatementExecutorCallback.java:40)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:73)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:44)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:85)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:64)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.syncExecute(ExecutorEngine.java:101)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.parallelExecute(ExecutorEngine.java:97)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.execute(ExecutorEngine.java:82)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutor.execute(JDBCExecutor.java:65)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.ProxyJDBCExecutor.execute(ProxyJDBCExecutor.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.useDriverToExecute(ProxySQLExecutor.java:170)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:127)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:116)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.doExecute(ProxyLockEngine.java:103)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.execute(ProxyLockEngine.java:81)
+	at org.apache.shardingsphere.proxy.backend.communication.DatabaseCommunicationEngine.execute(DatabaseCommunicationEngine.java:99)
+	at org.apache.shardingsphere.proxy.backend.text.data.impl.SchemaAssignedDatabaseBackendHandler.execute(SchemaAssignedDatabaseBackendHandler.java:55)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.query.text.query.MySQLComQueryPacketExecutor.execute(MySQLComQueryPacketExecutor.java:57)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.executeCommand(CommandExecutorTask.java:93)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.run(CommandExecutorTask.java:71)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2021-08-24 23:45:00.244 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SHOW VARIABLES LIKE 'character_set_database'
+[INFO ] 2021-08-24 23:45:00.244 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLShowOtherStatement()
+[INFO ] 2021-08-24 23:45:00.244 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SHOW VARIABLES LIKE 'character_set_database'
+[INFO ] 2021-08-24 23:45:01.560 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SELECT tb_user.id,tb_user.name,tb_user,card_id FROM tb_user
+[INFO ] 2021-08-24 23:45:01.560 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:45:01.560 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT tb_user_0.id,tb_user_0.name AS name,tb_user,card_id , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:45:01.560 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT tb_user_1.id,tb_user_1.name AS name,tb_user,card_id , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:45:01.560 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT tb_user_0.id,tb_user_0.name AS name,tb_user,card_id , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:45:01.560 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT tb_user_1.id,tb_user_1.name AS name,tb_user,card_id , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+[ERROR] 2021-08-24 23:45:01.696 [ShardingSphere-Command-1] o.a.s.p.f.c.CommandExecutorTask - Exception occur: 
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'tb_user' in 'field list'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:944)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3978)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3914)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2530)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2683)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2491)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2449)
+	at com.mysql.jdbc.StatementImpl.executeInternal(StatementImpl.java:845)
+	at com.mysql.jdbc.StatementImpl.execute(StatementImpl.java:939)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:103)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.impl.ProxyStatementExecutorCallback.execute(ProxyStatementExecutorCallback.java:40)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:73)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:44)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:85)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:64)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.syncExecute(ExecutorEngine.java:101)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.parallelExecute(ExecutorEngine.java:97)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.execute(ExecutorEngine.java:82)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutor.execute(JDBCExecutor.java:65)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.ProxyJDBCExecutor.execute(ProxyJDBCExecutor.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.useDriverToExecute(ProxySQLExecutor.java:170)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:127)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:116)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.doExecute(ProxyLockEngine.java:103)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.execute(ProxyLockEngine.java:81)
+	at org.apache.shardingsphere.proxy.backend.communication.DatabaseCommunicationEngine.execute(DatabaseCommunicationEngine.java:99)
+	at org.apache.shardingsphere.proxy.backend.text.data.impl.SchemaAssignedDatabaseBackendHandler.execute(SchemaAssignedDatabaseBackendHandler.java:55)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.query.text.query.MySQLComQueryPacketExecutor.execute(MySQLComQueryPacketExecutor.java:57)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.executeCommand(CommandExecutorTask.java:93)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.run(CommandExecutorTask.java:71)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2021-08-24 23:45:07.822 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SELECT tb_user.id,tb_user.name,tb_user,card_id FROM tb_user
+[INFO ] 2021-08-24 23:45:07.822 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:45:07.822 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT tb_user_0.id,tb_user_0.name AS name,tb_user,card_id , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:45:07.822 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT tb_user_1.id,tb_user_1.name AS name,tb_user,card_id , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:45:07.822 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT tb_user_0.id,tb_user_0.name AS name,tb_user,card_id , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:45:07.822 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT tb_user_1.id,tb_user_1.name AS name,tb_user,card_id , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+[ERROR] 2021-08-24 23:45:07.998 [ShardingSphere-Command-1] o.a.s.p.f.c.CommandExecutorTask - Exception occur: 
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'tb_user' in 'field list'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:944)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3978)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3914)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2530)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2683)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2491)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2449)
+	at com.mysql.jdbc.StatementImpl.executeInternal(StatementImpl.java:845)
+	at com.mysql.jdbc.StatementImpl.execute(StatementImpl.java:939)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:103)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.impl.ProxyStatementExecutorCallback.execute(ProxyStatementExecutorCallback.java:40)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:73)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:44)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:85)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:64)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.syncExecute(ExecutorEngine.java:101)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.parallelExecute(ExecutorEngine.java:97)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.execute(ExecutorEngine.java:82)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutor.execute(JDBCExecutor.java:65)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.ProxyJDBCExecutor.execute(ProxyJDBCExecutor.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.useDriverToExecute(ProxySQLExecutor.java:170)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:127)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:116)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.doExecute(ProxyLockEngine.java:103)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.execute(ProxyLockEngine.java:81)
+	at org.apache.shardingsphere.proxy.backend.communication.DatabaseCommunicationEngine.execute(DatabaseCommunicationEngine.java:99)
+	at org.apache.shardingsphere.proxy.backend.text.data.impl.SchemaAssignedDatabaseBackendHandler.execute(SchemaAssignedDatabaseBackendHandler.java:55)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.query.text.query.MySQLComQueryPacketExecutor.execute(MySQLComQueryPacketExecutor.java:57)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.executeCommand(CommandExecutorTask.java:93)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.run(CommandExecutorTask.java:71)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2021-08-24 23:45:41.429 [ShardingSphere-Command-1] ShardingSphere-SQL - Logic SQL: SELECT tb_user.id,tb_user.name,tb_user.card_id FROM tb_user
+[INFO ] 2021-08-24 23:45:41.429 [ShardingSphere-Command-1] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:45:41.430 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT tb_user_0.id,tb_user_0.name AS name,tb_user_0.card_id , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:45:41.430 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT tb_user_1.id,tb_user_1.name AS name,tb_user_1.card_id , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:45:41.430 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT tb_user_0.id,tb_user_0.name AS name,tb_user_0.card_id , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:45:41.430 [ShardingSphere-Command-1] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT tb_user_1.id,tb_user_1.name AS name,tb_user_1.card_id , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+[ERROR] 2021-08-24 23:45:42.029 [ShardingSphere-Command-1] o.a.s.p.f.c.CommandExecutorTask - Exception occur: 
+javax.crypto.IllegalBlockSizeException: Input length must be multiple of 16 when decrypting with padded cipher
+	at com.sun.crypto.provider.CipherCore.prepareInputBuffer(CipherCore.java:1005)
+	at com.sun.crypto.provider.CipherCore.doFinal(CipherCore.java:848)
+	at com.sun.crypto.provider.AESCipher.engineDoFinal(AESCipher.java:446)
+	at javax.crypto.Cipher.doFinal(Cipher.java:2168)
+	at org.apache.shardingsphere.encrypt.algorithm.AESEncryptAlgorithm.decrypt(AESEncryptAlgorithm.java:78)
+	at org.apache.shardingsphere.encrypt.merge.dql.EncryptMergedResult.getValue(EncryptMergedResult.java:56)
+	at org.apache.shardingsphere.proxy.backend.communication.DatabaseCommunicationEngine.getQueryResponseRow(DatabaseCommunicationEngine.java:181)
+	at org.apache.shardingsphere.proxy.backend.text.data.impl.SchemaAssignedDatabaseBackendHandler.getRowData(SchemaAssignedDatabaseBackendHandler.java:65)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.query.text.query.MySQLComQueryPacketExecutor.getQueryRowPacket(MySQLComQueryPacketExecutor.java:80)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.query.text.query.MySQLComQueryPacketExecutor.getQueryRowPacket(MySQLComQueryPacketExecutor.java:42)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.MySQLCommandExecuteEngine.writeQueryData(MySQLCommandExecuteEngine.java:88)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.executeCommand(CommandExecutorTask.java:99)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.run(CommandExecutorTask.java:71)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2021-08-24 23:46:07.367 [ShardingSphere-Command-2] ShardingSphere-SQL - Logic SQL: SHOW VARIABLES LIKE 'character_set_database'
+[INFO ] 2021-08-24 23:46:07.367 [ShardingSphere-Command-2] ShardingSphere-SQL - SQLStatement: MySQLShowOtherStatement()
+[INFO ] 2021-08-24 23:46:07.368 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SHOW VARIABLES LIKE 'character_set_database'
+[INFO ] 2021-08-24 23:46:10.248 [ShardingSphere-Command-2] ShardingSphere-SQL - Logic SQL: SELECT tb_user.id,tb_user.name,tb_user.card_id FROM tb_user
+[INFO ] 2021-08-24 23:46:10.248 [ShardingSphere-Command-2] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:46:10.249 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT tb_user_0.id,tb_user_0.name AS name,tb_user_0.card_id , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:46:10.249 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT tb_user_1.id,tb_user_1.name AS name,tb_user_1.card_id , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:46:10.249 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT tb_user_0.id,tb_user_0.name AS name,tb_user_0.card_id , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:46:10.249 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT tb_user_1.id,tb_user_1.name AS name,tb_user_1.card_id , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+[ERROR] 2021-08-24 23:46:10.437 [ShardingSphere-Command-2] o.a.s.p.f.c.CommandExecutorTask - Exception occur: 
+javax.crypto.IllegalBlockSizeException: Input length must be multiple of 16 when decrypting with padded cipher
+	at com.sun.crypto.provider.CipherCore.prepareInputBuffer(CipherCore.java:1005)
+	at com.sun.crypto.provider.CipherCore.doFinal(CipherCore.java:848)
+	at com.sun.crypto.provider.AESCipher.engineDoFinal(AESCipher.java:446)
+	at javax.crypto.Cipher.doFinal(Cipher.java:2168)
+	at org.apache.shardingsphere.encrypt.algorithm.AESEncryptAlgorithm.decrypt(AESEncryptAlgorithm.java:78)
+	at org.apache.shardingsphere.encrypt.merge.dql.EncryptMergedResult.getValue(EncryptMergedResult.java:56)
+	at org.apache.shardingsphere.proxy.backend.communication.DatabaseCommunicationEngine.getQueryResponseRow(DatabaseCommunicationEngine.java:181)
+	at org.apache.shardingsphere.proxy.backend.text.data.impl.SchemaAssignedDatabaseBackendHandler.getRowData(SchemaAssignedDatabaseBackendHandler.java:65)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.query.text.query.MySQLComQueryPacketExecutor.getQueryRowPacket(MySQLComQueryPacketExecutor.java:80)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.query.text.query.MySQLComQueryPacketExecutor.getQueryRowPacket(MySQLComQueryPacketExecutor.java:42)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.MySQLCommandExecuteEngine.writeQueryData(MySQLCommandExecuteEngine.java:88)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.executeCommand(CommandExecutorTask.java:99)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.run(CommandExecutorTask.java:71)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2021-08-24 23:46:36.818 [ShardingSphere-Command-2] ShardingSphere-SQL - Logic SQL: SELECT * FROM tb_user
+[INFO ] 2021-08-24 23:46:36.818 [ShardingSphere-Command-2] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:46:36.818 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:46:36.818 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:46:36.818 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:46:36.818 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_1 ORDER BY id ASC 
+[ERROR] 2021-08-24 23:46:36.958 [ShardingSphere-Command-2] o.a.s.p.f.c.CommandExecutorTask - Exception occur: 
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'tb_user.id' in 'field list'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:944)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3978)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3914)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2530)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2683)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2491)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2449)
+	at com.mysql.jdbc.StatementImpl.executeInternal(StatementImpl.java:845)
+	at com.mysql.jdbc.StatementImpl.execute(StatementImpl.java:939)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:103)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.impl.ProxyStatementExecutorCallback.execute(ProxyStatementExecutorCallback.java:40)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:73)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:44)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:85)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:64)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.syncExecute(ExecutorEngine.java:101)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.parallelExecute(ExecutorEngine.java:97)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.execute(ExecutorEngine.java:82)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutor.execute(JDBCExecutor.java:65)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.ProxyJDBCExecutor.execute(ProxyJDBCExecutor.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.useDriverToExecute(ProxySQLExecutor.java:170)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:127)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:116)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.doExecute(ProxyLockEngine.java:103)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.execute(ProxyLockEngine.java:81)
+	at org.apache.shardingsphere.proxy.backend.communication.DatabaseCommunicationEngine.execute(DatabaseCommunicationEngine.java:99)
+	at org.apache.shardingsphere.proxy.backend.text.data.impl.SchemaAssignedDatabaseBackendHandler.execute(SchemaAssignedDatabaseBackendHandler.java:55)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.query.text.query.MySQLComQueryPacketExecutor.execute(MySQLComQueryPacketExecutor.java:57)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.executeCommand(CommandExecutorTask.java:93)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.run(CommandExecutorTask.java:71)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2021-08-24 23:46:45.999 [ShardingSphere-Command-2] ShardingSphere-SQL - Logic SQL: SELECT * FROM tb_user
+[INFO ] 2021-08-24 23:46:45.999 [ShardingSphere-Command-2] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:46:45.999 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:46:45.999 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:46:45.999 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:46:45.999 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_1 ORDER BY id ASC 
+[ERROR] 2021-08-24 23:46:46.144 [ShardingSphere-Command-2] o.a.s.p.f.c.CommandExecutorTask - Exception occur: 
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'tb_user.id' in 'field list'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:944)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3978)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3914)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2530)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2683)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2491)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2449)
+	at com.mysql.jdbc.StatementImpl.executeInternal(StatementImpl.java:845)
+	at com.mysql.jdbc.StatementImpl.execute(StatementImpl.java:939)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:103)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.impl.ProxyStatementExecutorCallback.execute(ProxyStatementExecutorCallback.java:40)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:73)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:44)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:85)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:64)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.syncExecute(ExecutorEngine.java:101)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.parallelExecute(ExecutorEngine.java:97)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.execute(ExecutorEngine.java:82)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutor.execute(JDBCExecutor.java:65)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.ProxyJDBCExecutor.execute(ProxyJDBCExecutor.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.useDriverToExecute(ProxySQLExecutor.java:170)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:127)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:116)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.doExecute(ProxyLockEngine.java:103)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.execute(ProxyLockEngine.java:81)
+	at org.apache.shardingsphere.proxy.backend.communication.DatabaseCommunicationEngine.execute(DatabaseCommunicationEngine.java:99)
+	at org.apache.shardingsphere.proxy.backend.text.data.impl.SchemaAssignedDatabaseBackendHandler.execute(SchemaAssignedDatabaseBackendHandler.java:55)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.query.text.query.MySQLComQueryPacketExecutor.execute(MySQLComQueryPacketExecutor.java:57)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.executeCommand(CommandExecutorTask.java:93)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.run(CommandExecutorTask.java:71)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2021-08-24 23:46:58.901 [ShardingSphere-Command-2] ShardingSphere-SQL - Logic SQL: SELECT id FROM tb_user
+[INFO ] 2021-08-24 23:46:58.901 [ShardingSphere-Command-2] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:46:58.901 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT id FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:46:58.901 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT id FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:46:58.901 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT id FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:46:58.902 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT id FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:47:07.752 [ShardingSphere-Command-2] ShardingSphere-SQL - Logic SQL: SELECT name FROM tb_user
+[INFO ] 2021-08-24 23:47:07.753 [ShardingSphere-Command-2] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:47:07.753 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT name AS name , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:47:07.753 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT name AS name , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:47:07.753 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT name AS name , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:47:07.753 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT name AS name , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+[ERROR] 2021-08-24 23:47:07.948 [ShardingSphere-Command-2] o.a.s.p.f.c.CommandExecutorTask - Exception occur: 
+javax.crypto.IllegalBlockSizeException: Input length must be multiple of 16 when decrypting with padded cipher
+	at com.sun.crypto.provider.CipherCore.prepareInputBuffer(CipherCore.java:1005)
+	at com.sun.crypto.provider.CipherCore.doFinal(CipherCore.java:848)
+	at com.sun.crypto.provider.AESCipher.engineDoFinal(AESCipher.java:446)
+	at javax.crypto.Cipher.doFinal(Cipher.java:2168)
+	at org.apache.shardingsphere.encrypt.algorithm.AESEncryptAlgorithm.decrypt(AESEncryptAlgorithm.java:78)
+	at org.apache.shardingsphere.encrypt.merge.dql.EncryptMergedResult.getValue(EncryptMergedResult.java:56)
+	at org.apache.shardingsphere.proxy.backend.communication.DatabaseCommunicationEngine.getQueryResponseRow(DatabaseCommunicationEngine.java:181)
+	at org.apache.shardingsphere.proxy.backend.text.data.impl.SchemaAssignedDatabaseBackendHandler.getRowData(SchemaAssignedDatabaseBackendHandler.java:65)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.query.text.query.MySQLComQueryPacketExecutor.getQueryRowPacket(MySQLComQueryPacketExecutor.java:80)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.query.text.query.MySQLComQueryPacketExecutor.getQueryRowPacket(MySQLComQueryPacketExecutor.java:42)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.MySQLCommandExecuteEngine.writeQueryData(MySQLCommandExecuteEngine.java:88)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.executeCommand(CommandExecutorTask.java:99)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.run(CommandExecutorTask.java:71)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2021-08-24 23:48:14.448 [ShardingSphere-Command-2] ShardingSphere-SQL - Logic SQL: SELECT card_id FROM tb_user
+[INFO ] 2021-08-24 23:48:14.448 [ShardingSphere-Command-2] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:48:14.448 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT card_id , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:48:14.448 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT card_id , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:48:14.448 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT card_id , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:48:14.448 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT card_id , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:48:17.469 [ShardingSphere-Command-2] ShardingSphere-SQL - Logic SQL: SELECT name FROM tb_user
+[INFO ] 2021-08-24 23:48:17.469 [ShardingSphere-Command-2] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:48:17.469 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT name AS name , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:48:17.469 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT name AS name , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:48:17.469 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT name AS name , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:48:17.469 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT name AS name , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+[ERROR] 2021-08-24 23:48:17.656 [ShardingSphere-Command-2] o.a.s.p.f.c.CommandExecutorTask - Exception occur: 
+javax.crypto.IllegalBlockSizeException: Input length must be multiple of 16 when decrypting with padded cipher
+	at com.sun.crypto.provider.CipherCore.prepareInputBuffer(CipherCore.java:1005)
+	at com.sun.crypto.provider.CipherCore.doFinal(CipherCore.java:848)
+	at com.sun.crypto.provider.AESCipher.engineDoFinal(AESCipher.java:446)
+	at javax.crypto.Cipher.doFinal(Cipher.java:2168)
+	at org.apache.shardingsphere.encrypt.algorithm.AESEncryptAlgorithm.decrypt(AESEncryptAlgorithm.java:78)
+	at org.apache.shardingsphere.encrypt.merge.dql.EncryptMergedResult.getValue(EncryptMergedResult.java:56)
+	at org.apache.shardingsphere.proxy.backend.communication.DatabaseCommunicationEngine.getQueryResponseRow(DatabaseCommunicationEngine.java:181)
+	at org.apache.shardingsphere.proxy.backend.text.data.impl.SchemaAssignedDatabaseBackendHandler.getRowData(SchemaAssignedDatabaseBackendHandler.java:65)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.query.text.query.MySQLComQueryPacketExecutor.getQueryRowPacket(MySQLComQueryPacketExecutor.java:80)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.query.text.query.MySQLComQueryPacketExecutor.getQueryRowPacket(MySQLComQueryPacketExecutor.java:42)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.MySQLCommandExecuteEngine.writeQueryData(MySQLCommandExecuteEngine.java:88)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.executeCommand(CommandExecutorTask.java:99)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.run(CommandExecutorTask.java:71)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2021-08-24 23:49:26.707 [ShardingSphere-Command-2] ShardingSphere-SQL - Logic SQL: SELECT name FROM tb_user
+[INFO ] 2021-08-24 23:49:26.707 [ShardingSphere-Command-2] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:49:26.708 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT name AS name , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:49:26.708 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT name AS name , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:49:26.708 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT name AS name , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:49:26.708 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT name AS name , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:49:28.116 [ShardingSphere-Command-2] ShardingSphere-SQL - Logic SQL: SELECT name FROM tb_user
+[INFO ] 2021-08-24 23:49:28.116 [ShardingSphere-Command-2] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:49:28.116 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT name AS name , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:49:28.116 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT name AS name , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:49:28.116 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT name AS name , id AS ORDER_BY_DERIVED_0 FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:49:28.116 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT name AS name , id AS ORDER_BY_DERIVED_0 FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:49:32.439 [ShardingSphere-Command-2] ShardingSphere-SQL - Logic SQL: SELECT * FROM tb_user
+[INFO ] 2021-08-24 23:49:32.439 [ShardingSphere-Command-2] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:49:32.439 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:49:32.440 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:49:32.440 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:49:32.440 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_1 ORDER BY id ASC 
+[ERROR] 2021-08-24 23:49:32.577 [ShardingSphere-Command-2] o.a.s.p.f.c.CommandExecutorTask - Exception occur: 
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'tb_user.id' in 'field list'
+	at sun.reflect.GeneratedConstructorAccessor21.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:944)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3978)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3914)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2530)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2683)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2491)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2449)
+	at com.mysql.jdbc.StatementImpl.executeInternal(StatementImpl.java:845)
+	at com.mysql.jdbc.StatementImpl.execute(StatementImpl.java:939)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:103)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.impl.ProxyStatementExecutorCallback.execute(ProxyStatementExecutorCallback.java:40)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:73)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:44)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:85)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:64)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.syncExecute(ExecutorEngine.java:101)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.parallelExecute(ExecutorEngine.java:97)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.execute(ExecutorEngine.java:82)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutor.execute(JDBCExecutor.java:65)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.ProxyJDBCExecutor.execute(ProxyJDBCExecutor.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.useDriverToExecute(ProxySQLExecutor.java:170)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:127)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:116)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.doExecute(ProxyLockEngine.java:103)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.execute(ProxyLockEngine.java:81)
+	at org.apache.shardingsphere.proxy.backend.communication.DatabaseCommunicationEngine.execute(DatabaseCommunicationEngine.java:99)
+	at org.apache.shardingsphere.proxy.backend.text.data.impl.SchemaAssignedDatabaseBackendHandler.execute(SchemaAssignedDatabaseBackendHandler.java:55)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.query.text.query.MySQLComQueryPacketExecutor.execute(MySQLComQueryPacketExecutor.java:57)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.executeCommand(CommandExecutorTask.java:93)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.run(CommandExecutorTask.java:71)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2021-08-24 23:49:46.837 [ShardingSphere-Command-2] ShardingSphere-SQL - Logic SQL: SELECT id,NAME,card_id FROM tb_user
+[INFO ] 2021-08-24 23:49:46.838 [ShardingSphere-Command-2] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:49:46.838 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT id,name AS NAME,card_id FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:49:46.838 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT id,name AS NAME,card_id FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:49:46.838 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT id,name AS NAME,card_id FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:49:46.838 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT id,name AS NAME,card_id FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:50:29.319 [ShardingSphere-Command-2] ShardingSphere-SQL - Logic SQL: SELECT id,NAME,card_id FROM tb_user
+[INFO ] 2021-08-24 23:50:29.319 [ShardingSphere-Command-2] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:50:29.319 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT id,name AS NAME,card_id FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:50:29.319 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT id,name AS NAME,card_id FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:50:29.320 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT id,name AS NAME,card_id FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:50:29.320 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT id,name AS NAME,card_id FROM tb_user_1 ORDER BY id ASC 
+[ERROR] 2021-08-24 23:50:29.518 [ShardingSphere-Command-2] o.a.s.p.f.c.CommandExecutorTask - Exception occur: 
+javax.crypto.IllegalBlockSizeException: Input length must be multiple of 16 when decrypting with padded cipher
+	at com.sun.crypto.provider.CipherCore.prepareInputBuffer(CipherCore.java:1005)
+	at com.sun.crypto.provider.CipherCore.doFinal(CipherCore.java:848)
+	at com.sun.crypto.provider.AESCipher.engineDoFinal(AESCipher.java:446)
+	at javax.crypto.Cipher.doFinal(Cipher.java:2168)
+	at org.apache.shardingsphere.encrypt.algorithm.AESEncryptAlgorithm.decrypt(AESEncryptAlgorithm.java:78)
+	at org.apache.shardingsphere.encrypt.merge.dql.EncryptMergedResult.getValue(EncryptMergedResult.java:56)
+	at org.apache.shardingsphere.proxy.backend.communication.DatabaseCommunicationEngine.getQueryResponseRow(DatabaseCommunicationEngine.java:181)
+	at org.apache.shardingsphere.proxy.backend.text.data.impl.SchemaAssignedDatabaseBackendHandler.getRowData(SchemaAssignedDatabaseBackendHandler.java:65)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.query.text.query.MySQLComQueryPacketExecutor.getQueryRowPacket(MySQLComQueryPacketExecutor.java:80)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.query.text.query.MySQLComQueryPacketExecutor.getQueryRowPacket(MySQLComQueryPacketExecutor.java:42)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.MySQLCommandExecuteEngine.writeQueryData(MySQLCommandExecuteEngine.java:88)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.executeCommand(CommandExecutorTask.java:99)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.run(CommandExecutorTask.java:71)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2021-08-24 23:51:18.714 [ShardingSphere-Command-2] ShardingSphere-SQL - Logic SQL: SELECT id,NAME,card_id FROM tb_user
+[INFO ] 2021-08-24 23:51:18.714 [ShardingSphere-Command-2] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:51:18.714 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT id,name AS NAME,card_id FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:51:18.714 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT id,name AS NAME,card_id FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:51:18.714 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT id,name AS NAME,card_id FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:51:18.715 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT id,name AS NAME,card_id FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:51:33.068 [ShardingSphere-Command-2] ShardingSphere-SQL - Logic SQL: SELECT * FROM tb_user
+[INFO ] 2021-08-24 23:51:33.068 [ShardingSphere-Command-2] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:51:33.068 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:51:33.068 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:51:33.068 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:51:33.068 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT `tb_user`.`id`, `tb_user`.`name` AS name, `tb_user`.`card_id` FROM tb_user_1 ORDER BY id ASC 
+[ERROR] 2021-08-24 23:51:33.200 [ShardingSphere-Command-2] o.a.s.p.f.c.CommandExecutorTask - Exception occur: 
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'tb_user.id' in 'field list'
+	at sun.reflect.GeneratedConstructorAccessor21.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:944)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3978)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3914)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2530)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2683)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2491)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2449)
+	at com.mysql.jdbc.StatementImpl.executeInternal(StatementImpl.java:845)
+	at com.mysql.jdbc.StatementImpl.execute(StatementImpl.java:939)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:103)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.impl.ProxyStatementExecutorCallback.execute(ProxyStatementExecutorCallback.java:40)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:73)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.callback.ProxyJDBCExecutorCallback.executeSQL(ProxyJDBCExecutorCallback.java:44)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:85)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutorCallback.execute(JDBCExecutorCallback.java:64)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.syncExecute(ExecutorEngine.java:101)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.parallelExecute(ExecutorEngine.java:97)
+	at org.apache.shardingsphere.infra.executor.kernel.ExecutorEngine.execute(ExecutorEngine.java:82)
+	at org.apache.shardingsphere.infra.executor.sql.execute.engine.driver.jdbc.JDBCExecutor.execute(JDBCExecutor.java:65)
+	at org.apache.shardingsphere.proxy.backend.communication.jdbc.executor.ProxyJDBCExecutor.execute(ProxyJDBCExecutor.java:66)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.useDriverToExecute(ProxySQLExecutor.java:170)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:127)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxySQLExecutor.execute(ProxySQLExecutor.java:116)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.doExecute(ProxyLockEngine.java:103)
+	at org.apache.shardingsphere.proxy.backend.communication.ProxyLockEngine.execute(ProxyLockEngine.java:81)
+	at org.apache.shardingsphere.proxy.backend.communication.DatabaseCommunicationEngine.execute(DatabaseCommunicationEngine.java:99)
+	at org.apache.shardingsphere.proxy.backend.text.data.impl.SchemaAssignedDatabaseBackendHandler.execute(SchemaAssignedDatabaseBackendHandler.java:55)
+	at org.apache.shardingsphere.proxy.frontend.mysql.command.query.text.query.MySQLComQueryPacketExecutor.execute(MySQLComQueryPacketExecutor.java:57)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.executeCommand(CommandExecutorTask.java:93)
+	at org.apache.shardingsphere.proxy.frontend.command.CommandExecutorTask.run(CommandExecutorTask.java:71)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+line 1:0 no viable alternative at input 'id'
+line 1:0 no viable alternative at input 'id'
+line 1:0 mismatched input 'id' expecting {ADD, CREATE, ALTER, DROP, SHOW, START, STOP, RESET, CHECK}
+[INFO ] 2021-08-24 23:51:41.664 [ShardingSphere-Command-2] ShardingSphere-SQL - Logic SQL: SELECT id,NAME,card_id FROM tb_user
+[INFO ] 2021-08-24 23:51:41.664 [ShardingSphere-Command-2] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:51:41.664 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT id,name AS NAME,card_id FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:51:41.664 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT id,name AS NAME,card_id FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:51:41.664 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT id,name AS NAME,card_id FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:51:41.664 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT id,name AS NAME,card_id FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:51:41.981 [ShardingSphere-Command-2] ShardingSphere-SQL - Logic SQL: SELECT id,NAME,card_id FROM tb_user
+[INFO ] 2021-08-24 23:51:41.981 [ShardingSphere-Command-2] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:51:41.982 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT id,name AS NAME,card_id FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:51:41.982 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT id,name AS NAME,card_id FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:51:41.982 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT id,name AS NAME,card_id FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:51:41.982 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT id,name AS NAME,card_id FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:51:42.831 [ShardingSphere-Command-2] ShardingSphere-SQL - Logic SQL: SELECT id,NAME,card_id FROM tb_user
+[INFO ] 2021-08-24 23:51:42.831 [ShardingSphere-Command-2] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:51:42.831 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT id,name AS NAME,card_id FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:51:42.832 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT id,name AS NAME,card_id FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:51:42.832 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT id,name AS NAME,card_id FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:51:42.832 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT id,name AS NAME,card_id FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:51:43.155 [ShardingSphere-Command-2] ShardingSphere-SQL - Logic SQL: SELECT id,NAME,card_id FROM tb_user
+[INFO ] 2021-08-24 23:51:43.155 [ShardingSphere-Command-2] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:51:43.155 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT id,name AS NAME,card_id FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:51:43.155 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT id,name AS NAME,card_id FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:51:43.156 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT id,name AS NAME,card_id FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:51:43.156 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT id,name AS NAME,card_id FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:51:43.365 [ShardingSphere-Command-2] ShardingSphere-SQL - Logic SQL: SELECT id,NAME,card_id FROM tb_user
+[INFO ] 2021-08-24 23:51:43.365 [ShardingSphere-Command-2] ShardingSphere-SQL - SQLStatement: MySQLSelectStatement(limit=Optional.empty, lock=Optional.empty, window=Optional.empty)
+[INFO ] 2021-08-24 23:51:43.365 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT id,name AS NAME,card_id FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:51:43.365 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_0 ::: SELECT id,name AS NAME,card_id FROM tb_user_1 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:51:43.365 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT id,name AS NAME,card_id FROM tb_user_0 ORDER BY id ASC 
+[INFO ] 2021-08-24 23:51:43.365 [ShardingSphere-Command-2] ShardingSphere-SQL - Actual SQL: ds_1 ::: SELECT id,name AS NAME,card_id FROM tb_user_1 ORDER BY id ASC 
